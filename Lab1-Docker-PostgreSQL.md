@@ -1,4 +1,4 @@
-# Lab 01: PostgreSQL Docker Setup and Basic Operations
+  # Lab 01: PostgreSQL Docker Setup and Basic Operations
 
 ## วัตถุประสงค์
 1. ติดตั้งและใช้งาน PostgreSQL ผ่าน Docker
@@ -156,6 +156,8 @@ docker volume create postgres-config
 
 **บันทึกผลการทดลอง - Step 3:**
 <img width="632" height="430" alt="image" src="https://github.com/user-attachments/assets/4b534a6b-266d-4271-8f00-70d53d9ca054" />
+<img width="588" height="421" alt="image" src="https://github.com/user-attachments/assets/41d90d1a-b986-4265-aa14-5acc53f667a3" />
+
 
 
 ### Step 4: Verify Container Status and Resource Usage
@@ -175,12 +177,8 @@ docker volume inspect postgres-data
 ```
 
 **บันทึกผลการทดลอง - Step 4:**
-```
-ใส่ Screenshot ของ:
-1. ผลการรัน docker ps
-2. ส่วนหนึ่งของ docker logs postgres-lab
-3. ผลการรัน docker stats
-```
+![Uploading image.png…]()
+
 
 ### Step 5: Connect to PostgreSQL และตรวจสอบ Configuration
 
