@@ -177,7 +177,8 @@ docker volume inspect postgres-data
 ```
 
 **บันทึกผลการทดลอง - Step 4:**
-![Uploading image.png…]()
+<img width="427" height="672" alt="image" src="https://github.com/user-attachments/assets/7738b088-5aa9-4f50-b39e-4beed9551645" />
+
 
 
 ### Step 5: Connect to PostgreSQL และตรวจสอบ Configuration
