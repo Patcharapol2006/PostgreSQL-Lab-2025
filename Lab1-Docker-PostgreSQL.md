@@ -371,16 +371,33 @@ GRANT SELECT ON postgres_test_table TO lab_user;
 ```
 
 **บันทึกผลการทดลอง - Step 8:**
-```
-ใส่ Screenshot ของ:
-1. ผลการ ALTER USER commands
-2. ผลการรัน \dp test_permissions
-3. ผลการ GRANT commands
-```
+<img width="374" height="256" alt="image" src="https://github.com/user-attachments/assets/8c58478d-6a94-445a-b601-8f0dd90a290d" />
+
 **คำถาม
  ```
 Access Privileges   postgres=arwdDxtm/postgres มีความหมายอย่างไร
+postgres=arwdDxtm/postgres เป็นรูปแบบการแสดงสิทธิ์ (Access Privileges) ใน PostgreSQL ที่บอกว่า:
 
+postgres= → ผู้รับสิทธิ์คือ role ชื่อ postgres
+
+arwdDxtm → สิทธิ์ที่ได้รับ มีทั้งหมดดังนี้:
+
+a = INSERT
+
+r = SELECT (read)
+
+w = UPDATE (write)
+
+d = DELETE
+
+D = TRUNCATE
+
+x = REFERENCES
+
+t = TRIGGER
+
+m = มีสิทธิ์ GRANT สิทธิ์เหล่านี้ให้คนอื่นได้ (grant option)
+/postgres → สิทธิ์เหล่านี้ถูก grant โดย role postgres
 
  ```
 ### Step 9: Schema Management และ Namespace
