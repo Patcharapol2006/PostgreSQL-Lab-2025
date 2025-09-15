@@ -781,11 +781,24 @@ docker run -d \
 
 **ผลการทำแบบฝึกหัด 2:**
 ```
-ใส่ Screenshot ของ:
-1. การสร้าง roles และ users
-2. ผลการรัน \du แสดงผู้ใช้ทั้งหมด
-3. ผลการทดสอบเชื่อมต่อด้วย user ต่างๆ
+-- พื้นที่สำหรับคำตอบ - เขียน SQL commands ที่ใช้
+1.
+docker exec -it multi-postgres psql -U postgres
+2.
+CREATE ROLE app_developers NOLOGIN;
+CREATE ROLE data_analysts NOLOGIN;
+CREATE ROLE db_admins NOLOGIN;
+
+CREATE ROLE dev_user     LOGIN PASSWORD 'dev123'     IN ROLE app_developers;
+CREATE ROLE analyst_user LOGIN PASSWORD 'analyst123' IN ROLE data_analysts;
+CREATE ROLE admin_user   LOGIN PASSWORD 'admin123'   IN ROLE db_admins;
 ```
+<img width="454" height="420" alt="image" src="https://github.com/user-attachments/assets/93f991de-3cfa-4038-bf97-3036f52088e2" />
+<img width="461" height="124" alt="image" src="https://github.com/user-attachments/assets/12e05e41-bb63-452f-b23b-61d3de85c9e5" />
+<img width="454" height="123" alt="image" src="https://github.com/user-attachments/assets/c9d26013-49dd-425d-9be0-3504faf8fa1e" />
+<img width="469" height="124" alt="image" src="https://github.com/user-attachments/assets/62083ebe-716f-4461-b57a-e3c942470cc1" />
+
+
 
 ### แบบฝึกหัด 3: Schema Design และ Complex Queries
 **คำสั่ง**: สร้างระบบฐานข้อมูลร้านค้าออนไลน์:
