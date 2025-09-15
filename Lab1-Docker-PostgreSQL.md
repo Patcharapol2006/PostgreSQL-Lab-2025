@@ -259,12 +259,8 @@ WHERE datname = 'lab_db';
 ```
 
 **บันทึกผลการทดลอง - Step 6:**
-```
-ใส่ Screenshot ของ:
-1. ผลการสร้าง lab_db
-2. ผลการรัน \l+ แสดงฐานข้อมูลทั้งหมด
-3. ผลการ query ข้อมูลฐานข้อมูล
-```
+<img width="637" height="736" alt="image" src="https://github.com/user-attachments/assets/1e7f1cc2-c363-4c08-af4a-3aa21b6fc847" />
+
 
 ### Step 7: User และ Role Management
 
@@ -317,12 +313,8 @@ WHERE r.rolname NOT LIKE 'pg_%';
 ```
 
 **บันทึกผลการทดลอง - Step 7:**
-```
-ใส่ Screenshot ของ:
-1. ผลการสร้าง users ทั้งหมด
-2. ผลการรัน \du+
-3. ผลการ query pg_roles
-```
+<img width="620" height="422" alt="image" src="https://github.com/user-attachments/assets/f42e9612-960c-41fd-aa25-ece152a7e682" />
+
 
 ### Step 8: การจัดการสิทธิ์ User
 
