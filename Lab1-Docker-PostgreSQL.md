@@ -499,13 +499,8 @@ INSERT INTO hr.employee_orders (employee_id, customer_id, order_date, commission
 ```
 
 **บันทึกผลการทดลอง - Step 9:**
-```
-ใส่ Screenshot ของ:
-1. ผลการสร้าง schemas (\dn+)
-2. ผลการสร้างตารางในแต่ละ schema
-3. ผลการใส่ข้อมูลและ query ข้อมูล
-4. ข้อมูลในตาราง employee_orders ที่จะใช้สำหรับ JOIN ข้าม schema
-```
+<img width="742" height="673" alt="image" src="https://github.com/user-attachments/assets/8cbe7f68-74f3-4e91-8762-002faff70be4" />
+
 
 ### Step 10: ทดสอบการเข้าถึง Schema และ Search Path
 
@@ -566,13 +561,8 @@ SET search_path TO public;
 ```
 
 **บันทึกผลการทดลอง - Step 10:**
-```
-ใส่ Screenshot ของ:
-1. ผลการแสดง search_path
-2. ผลการ query ภายใน schema เดียวกัน (sales.customers + sales.orders)
-3. ผลการ JOIN ข้าม schemas (sales + hr + inventory)
-4. ข้อมูลที่แสดงจาก complex join ข้าม 3 schemas
-```
+<img width="492" height="705" alt="image" src="https://github.com/user-attachments/assets/b540614b-8445-44bb-88d9-584af7bcc457" />
+
 
 ### Step 11: ทดสอบการเชื่อมต่อจาก User อื่น
 
