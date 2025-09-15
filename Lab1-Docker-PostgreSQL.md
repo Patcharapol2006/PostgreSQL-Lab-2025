@@ -950,17 +950,59 @@ CREATE ROLE admin_user   LOGIN PASSWORD 'admin123'   IN ROLE db_admins;
 ```
 ```sql
   -- พื้นที่สำหรับคำตอบ - เขียน SQL commands ทั้งหมด
+docker exec -it multi-postgres psql -U postgres
+
+2
+CREATE SCHEMA ecommerce;
+CREATE SCHEMA analytics;
+CREATE SCHEMA audit;
+
+3
+CREATE TABLE ecommerce.categories (
+  category_id   BIGSERIAL PRIMARY KEY,
+  name          TEXT NOT NULL,
+  description   TEXT
+);
+
+CREATE TABLE ecommerce.products (
+  product_id    BIGSERIAL PRIMARY KEY,
+  name          TEXT NOT NULL,
+  description   TEXT,
+  price         NUMERIC(10,2) NOT NULL,
+  category_id   BIGINT REFERENCES ecommerce.categories(category_id),
+  stock         INT NOT NULL
+);
+
+CREATE TABLE ecommerce.customers (
+  customer_id   BIGSERIAL PRIMARY KEY,
+  name          TEXT NOT NULL,
+  email         TEXT NOT NULL,
+  phone         TEXT,
+  address       TEXT
+);
+
+CREATE TABLE ecommerce.orders (
+  order_id      BIGSERIAL PRIMARY KEY,
+  customer_id   BIGINT REFERENCES ecommerce.customers(customer_id),
+  order_date    TIMESTAMP NOT NULL,
+  status        TEXT NOT NULL,
+  total         NUMERIC(12,2) NOT NULL
+);
+
+CREATE TABLE ecommerce.order_items (
+  order_item_id BIGSERIAL PRIMARY KEY,
+  order_id      BIGINT REFERENCES ecommerce.orders(order_id),
+  product_id    BIGINT REFERENCES ecommerce.products(product_id),
+  quantity      INT NOT NULL,
+  price         NUMERIC(10,2) NOT NULL
+);
+
 
 ```
 
 **ผลการทำแบบฝึกหัด 3:**
-```
-ใส่ Screenshot ของ:
-1. โครงสร้าง schemas และ tables (\dn+, \dt ecommerce.*)
-2. ข้อมูลตัวอย่างในตารางต่างๆ
-3. ผลการรัน queries ที่สร้าง
-4. การวิเคราะห์ข้อมูลที่ได้
-```
+<img width="735" height="184" alt="image" src="https://github.com/user-attachments/assets/0496cf28-c780-4778-8ae5-6ebd12755404" />
+
 
 
 ## การทดสอบความเข้าใจ
@@ -976,6 +1018,23 @@ CREATE ROLE admin_user   LOGIN PASSWORD 'admin123'   IN ROLE db_admins;
 **คำตอบ Quiz 1:**
 ```
 เขียนคำตอบที่นี่
+Named Volume vs Bind Mount (PostgreSQL)
+
+Named Volume: Docker จัดการให้ ปลอดภัย เหมาะกับข้อมูลถาวร
+
+Bind Mount: ใช้แก้ไฟล์จาก host ได้สะดวก เหมาะกับช่วงพัฒนา
+
+shared_buffers = 25% ของ RAM
+
+เป็นค่าที่สมดุล: PostgreSQL มี buffer พอใช้ และ OS ยังมี RAM เหลือสำหรับ caching
+
+Schema กับฐานข้อมูลขนาดใหญ่
+
+ช่วยแบ่งกลุ่ม object, ลดความซับซ้อน, จัดการสิทธิ์แยกตาม module หรือทีม
+
+Docker กับ Database Development
+
+ติดตั้งเร็ว, แยกสภาพแวดล้อม, ทดสอบง่าย, ลดปัญหา config ข้ามเครื่อง
 ```
 
 
